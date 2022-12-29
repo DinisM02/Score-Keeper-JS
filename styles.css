@@ -6,6 +6,9 @@ margin-top: 25%;
 color: white;
 
 }
+.green{
+    color: green;
+}
 
 body{
     background-image: url("pg.jpg" );
