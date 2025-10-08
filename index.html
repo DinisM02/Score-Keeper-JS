@@ -1,36 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Score Keeper</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
+    <meta name="referrer" content="no-referrer">
+    <title>Eco Condução - Guia Completo A4</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+            font-size: 13px;
+        }
+        
+        /* Estilos para tela */
+        @media screen {
+            body {
+                background: #f5f5f5;
+                padding: 20px;
+            }
+            
+            .page {
+                max-width: 210mm;
+                min-height: 297mm;
+                margin: 0 auto;
+                background: white;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                padding: 15mm;
+            }
+        }
+        
+        /* Estilos específicos para impressão A4 */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            
+            .page {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                padding: 15mm;
+                page-break-after: always;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #059669, #0891b2);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Seções */
+        .section {
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #059669;
+        }
+        
+        .definition {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 15px;
+        }
+        
+        .definition p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Grid de benefícios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-item {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #10b981;
+            font-size: 0.9rem;
+        }
+        
+        .benefit-item .emoji {
+            font-size: 16px;
+            margin-right: 8px;
+        }
+        
+        .benefit-item .title {
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefit-item .desc {
+            color: #374151;
+            line-height: 1.4;
+        }
+        
+        /* Práticas - ATUALIZADO */
+        .practices-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .practice-item {
+            background: #f0f9ff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #0891b2;
+        }
+        
+        .practice-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .practice-list {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.4;
+        }
+        
+        .practice-list li {
+            margin-bottom: 4px;
+            padding-left: 5px;
+        }
+        
+        /* Trajetos econômicos - ATUALIZADO */
+        .economic-routes {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 15px;
+        }
+        
+        .economic-routes h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0891b2;
+            margin-bottom: 8px;
+        }
+        
+        .routes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .route-item {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .route-icon {
+            background: #0891b2;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        /* Conclusão */
+        .conclusion {
+            background: linear-gradient(135deg, #059669, #0891b2);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .conclusion h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .conclusion-values {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .value-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .conclusion p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Utilitários */
+        .text-center { text-align: center; }
+        .mb-small { margin-bottom: 8px; }
+        .font-bold { font-weight: 700; }
+        
+        /* Quebras de página para impressão */
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
 </head>
 <body>
-  
-    <div class="content">
-        <h1><strong>Score Keeper</strong></h1>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌱 ECO CONDUÇÃO 🚗</h1>
+            <p>Condução Sustentável para um Futuro Melhor</p>
+        </div>
 
-        <h3><big>Score:</big><span id="score1">0 </span> to <span id="score2">0</span></h3>
-    
-   
-    <div class="form-group">
-        <button type="submit" class="btn btn-default" id="ctr1">player1</button>
-        <button type="submit" class="btn btn-default" id="ctr2">player2</button>
-        <button class="btn btn-danger" id="reset">Reset</button>
-    
+        <!-- O que é Eco Condução -->
+        <div class="section">
+            <h2 class="section-title">❓ O que é Eco Condução?</h2>
+            <div class="definition">
+                <p>A eco-condução é uma forma inteligente de conduzir. Significa usar técnicas simples que ajudam a gastar menos combustível, reduzir o desgaste dos veículos, poluir menos o ambiente e aumentar a segurança na estrada.</p>
+            </div>
+        </div>
+
+        <!-- Benefícios -->
+        <div class="section">
+            <h2 class="section-title">✨ Benefícios da Eco Condução</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">💰</span>Menos gasto de combustível</div>
+                    <div class="desc">Mais quilómetros com o mesmo tanque.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">🔧</span>Menos despesas com manutenção</div>
+                    <div class="desc">Com menor desgaste das peças, o veículo dura mais e dá menos problemas.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">🛣️</span>Mais segurança na estrada</div>
+                    <div class="desc">Condução mais calma e controlada, reduzindo o risco de acidentes.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">😌</span>Menos stress ao volante</div>
+                    <div class="desc">Viagens mais tranquilas e confortáveis, contribuindo para um ambiente rodoviário mais seguro.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">🌍</span>Menos poluição</div>
+                    <div class="desc">Reduzimos a emissão de gases poluentes, ajudamos a proteger o ambiente.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">👍</span>Melhor imagem profissional</div>
+                    <div class="desc">Motoristas conscientes e responsáveis.</div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="title"><span class="emoji">✅</span>Cumprimento das regras da empresa</div>
+                    <div class="desc">Alinhado com boas práticas de transporte.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boas Práticas - ATUALIZADO -->
+        <div class="section">
+            <h2 class="section-title">🎯 Boas Práticas da Eco Condução</h2>
+            <div class="practices-grid">
+                <div class="practice-item">
+                    <div class="practice-title">🚗 Condução Suave</div>
+                    <ul class="practice-list">
+                        <li>Evitar acelerações desnecessárias e mudanças bruscas de velocidade</li>
+                        <li>Utilizar as rotações/marchas e velocidade recomendadas pelo fabricante</li>
+                        <li>Planear rotas que permitam uma condução fluida</li>
+                        <li>Utilizar marchas mais altas sempre que possível</li>
+                    </ul>
+                </div>
+                
+                <div class="practice-item">
+                    <div class="practice-title">💨 Otimização Aerodinâmica</div>
+                    <ul class="practice-list">
+                        <li>Remover acessórios externos quando não estiverem em uso</li>
+                        <li>Manter janelas fechadas em velocidades superiores a 60 km/h</li>
+                        <li>Utilizar ventilação interna sempre que possível</li>
+                        <li>Limpar regularmente a carroceria do veículo</li>
+                    </ul>
+                </div>
+                
+                <div class="practice-item">
+                    <div class="practice-title">🛞 Manutenção dos Pneus</div>
+                    <ul class="practice-list">
+                        <li>Verificar a pressão dos pneus regularmente (semanal)</li>
+                        <li>Seguir as recomendações do fabricante para calibragem</li>
+                        <li>Ajustar a pressão de acordo com a carga transportada</li>
+                        <li>Realizar alinhamento e balanceamento periodicamente</li>
+                    </ul>
+                </div>
+                
+                <div class="practice-item">
+                    <div class="practice-title">🗺️ Planeamento Inteligente</div>
+                    <ul class="practice-list">
+                        <li>Evitar trechos com muitos semáforos ou tráfego intenso</li>
+                        <li>Planear horários para evitar congestionamentos</li>
+                        <li>Utilizar ferramentas digitais para otimização de rotas</li>
+                        <li>Verificar condições de tráfego antes da partida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trajetos Econômicos - ATUALIZADO -->
+        <div class="section">
+            <div class="economic-routes">
+                <h3>🗺️ Boas Práticas para Trajetos Mais Económicos</h3>
+                <div class="routes-grid">
+                    <div class="route-item">
+                        <span class="route-icon">III</span>
+                        <span>Utilizar mapas e ferramentas digitais para avaliar diferentes opções antes da viagem.</span>
+                    </div>
+                    
+                    <div class="route-item">
+                        <span class="route-icon">IV</span>
+                        <span>Preferir estradas pavimentadas sempre que possível, pois reduzem o desgaste do veículo e optimizam o consumo de combustível.</span>
+                    </div>
+                    
+                    <div class="route-item">
+                        <span class="route-icon">O</span>
+                        <span>Planear horários de viagem para evitar congestionamentos em áreas urbanas.</span>
+                    </div>
+                    
+                    <div class="route-item">
+                        <span class="route-icon">R</span>
+                        <span>Verificar a disponibilidade de postos de abastecimento de combustível confiáveis ao longo do trajeto.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusão -->
+        <div class="conclusion">
+            <h2>💚 Condução Económica Significa:</h2>
+            <div class="conclusion-values">
+                <span class="value-badge">Prevenida</span>
+                <span>•</span>
+                <span class="value-badge">Segura</span>
+                <span>•</span>
+                <span class="value-badge">Eficiente</span>
+            </div>
+            <p><strong>Amiga do Meio Ambiente e de Todos</strong></p>
+        </div>
     </div>
-    <div class="form-group">
-        <input type="number" name="limit" value="5" class="form-control" id="limit">        
-    </div>    
-       <h3>The winner is: <span id="winner"></span></h3>
-
-    </div>
-
-    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
