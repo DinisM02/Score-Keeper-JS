@@ -262,6 +262,91 @@
             opacity: 0.9;
         }
         
+        /* Seção de Logos */
+        .logos-section {
+            background: #f1f5f9;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .logos-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+        }
+        
+        .logo-image {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .cooperation-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .cooperation-logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cooperation-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .cooperation-text {
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
         /* Responsividade */
         @media (max-width: 992px) {
             .benefits-grid {
@@ -282,6 +367,14 @@
             
             .content {
                 padding: 20px;
+            }
+            
+            .logos-container {
+                gap: 20px;
+            }
+            
+            .logo-item {
+                min-width: 120px;
             }
         }
     </style>
@@ -336,11 +429,7 @@
                         <div class="title"><span class="emoji">👍</span>Melhor imagem profissional</div>
                         <div class="desc">Motoristas conscientes e responsáveis.</div>
                     </div>
-                    
-                    <div class="benefit-item">
-                        <div class="title"><span class="emoji">✅</span>Cumprimento das regras da empresa</div>
-                        <div class="desc">Alinhado com boas práticas de transporte.</div>
-                    </div>
+                
                 </div>
             </div>
 
@@ -429,6 +518,57 @@
                     <span class="value-badge">Eficiente</span>
                 </div>
                 <p><strong>Amiga do Meio Ambiente e de Todos</strong></p>
+            </div>
+        </div>
+        
+        <!-- Seção de Logos -->
+        <div class="logos-section">
+    
+            <div class="logos-container">
+                <!-- Logo Cursion Sessionat -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="UE.jpg" alt="Cursion Sessionat">
+                    </div>
+                </div>
+                <!-- Logo Cursion Sessionat -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="emblema.png" alt="Cursion Sessionat">
+                    </div>
+                </div>
+                <!-- Logo LALEX -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="lalgy.png" alt="LALEX">
+                    </div>
+                </div>
+                 <!-- Logo LALEX -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="Picture3.png" alt="LALEX">
+                    </div>
+                </div>
+                
+                <!-- Logo FANSPORTS -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="gaia.png" alt="FANSPORTS">
+                    </div>
+                </div>
+                
+                <!-- Logo InSite -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
+                        <img src="insite.png" alt="InSite">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
