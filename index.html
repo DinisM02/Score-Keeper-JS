@@ -283,7 +283,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 30px;
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
         }
         
@@ -292,9 +292,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex: 1;
-            min-width: 150px;
-            max-width: 200px;
+            flex: 0 1 auto;
+            min-width: 100px;
+            max-width: 150px;
         }
         
         .logo-image {
@@ -316,28 +316,6 @@
             color: #64748b;
             text-align: center;
             line-height: 1.3;
-        }
-        
-        .cooperation-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        
-        .cooperation-logo {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cooperation-logo img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
         }
         
         .cooperation-text {
@@ -374,7 +352,8 @@
             }
             
             .logo-item {
-                min-width: 120px;
+                min-width: 80px;
+                max-width: 120px;
             }
         }
     </style>
@@ -523,49 +502,45 @@
         
         <!-- Seção de Logos -->
         <div class="logos-section">
-    
             <div class="logos-container">
-                <!-- Logo Cursion Sessionat -->
+                <!-- Logo UE -->
                 <div class="logo-item">
                     <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
-                        <img src="UE.jpg" alt="Cursion Sessionat">
-                    </div>
-                </div>
-                <!-- Logo Cursion Sessionat -->
-                <div class="logo-item">
-                    <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
-                        <img src="emblema.png" alt="Cursion Sessionat">
-                    </div>
-                </div>
-                <!-- Logo LALEX -->
-                <div class="logo-item">
-                    <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
-                        <img src="lalgy.png" alt="LALEX">
-                    </div>
-                </div>
-                 <!-- Logo LALEX -->
-                <div class="logo-item">
-                    <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
-                        <img src="Picture3.png" alt="LALEX">
+                        <img src="UE.jpg" alt="União Europeia">
                     </div>
                 </div>
                 
-                <!-- Logo FANSPORTS -->
+                <!-- Logo Emblema -->
                 <div class="logo-item">
                     <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
-                        <img src="gaia.png" alt="FANSPORTS">
+                        <img src="emblema.png" alt="Emblema">
+                    </div>
+                </div>
+                
+                <!-- Logo LALGY -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <img src="lalgy.png" alt="LALGY">
+                    </div>
+                </div>
+                
+                <!-- Logo Picture3 -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <img src="Picture3.png" alt="Parceiro">
+                    </div>
+                </div>
+                
+                <!-- Logo Gaia -->
+                <div class="logo-item">
+                    <div class="logo-image">
+                        <img src="gaia.png" alt="Gaia">
                     </div>
                 </div>
                 
                 <!-- Logo InSite -->
                 <div class="logo-item">
                     <div class="logo-image">
-                        <!-- ATUALIZE ESTE CAMINHO COM A IMAGEM REAL -->
                         <img src="insite.png" alt="InSite">
                     </div>
                 </div>
